@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDGN</title>
+    <style>
+        body{
+            background-color: #7890a8;
+            background-image: linear-gradient(to right, #405269, #4f637a, #5d748a, #6c859b);
+        }
+        #quadrado1 {
+            background-color: #181848;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: aliceblue;
+            font: normal 25pt Arial;
+            border: 8px inset #304878;
+        }
+
+        .primeiro{
+            align-items: center;
+            text-align: center;
+            font: normal 40pt Arial;
+            color: #f0a818;
+            border: 4px outset #f0a818;
+            width: 700px;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%,-0%);
+            
+        }
+        #testandofoto{
+            height: 180px;
+            width: 180px;
+            margin-top: 10px;
+            transition: filter 0.05s;
+        }
+        #testandofoto:hover{
+            filter: blur(10px);
+            transform: scale(1.1);
+        }
+        #nomeFunc{
+            position: relative;
+            margin-top: 440px;
+            text-align: center;
+            font: normal 25pt Arial;
+        }
+        #botao1{
+            background-color: blueviolet;
+            position: relative;
+            margin-left: 95%;
+            margin-top: 14%;
+            border-radius: 10px;
+            border: 3px solid #00ffff;
+        }
+        #botao1:hover{
+            border: 3px solid red;
+            
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            
+        }
+        .acess{
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="primeiro">Funcionário do mês</h1>
+    <div id="quadrado1">
+        <img src="IMG/testefoto.jpg" id="testandofoto">
+    </div>
+    <div id="nomeFunc">Amaral</div>
+    <button id="botao1"><a href="ideia2.html">proximo funcionario</a></button>
+    <script>
+        var nome = window.prompt('Qual seu nome?')
+        localStorage.setItem('nome', nome)
+        window.prompt(`${nome} Voce esta preparado para ver quem é o melhor funcionario do mes?`)
+        window.alert("ENTÃO VAMOS LÁ!!")
+        document.write(`<span class="acess">Acessado por:<strong> ${nome.toLowerCase()}</strong></span>`)
+    </script>
+</body>
+</html>

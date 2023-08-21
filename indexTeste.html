@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="IMG/iconitu2.png" type="image/x-icon">
+    <title>Sala de Artes</title>
+    <style>
+        body{
+            background: #f7ccace3;
+        }
+        header{
+            text-align: center;
+            font-style: oblique;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            margin: auto;
+            margin-bottom: 10px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 70px;
+        }
+        section{
+            background: #bba689;
+            border-radius: 10px;
+            padding: 15px;
+            width: 95%;
+            height: 740px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.516);
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        footer{
+            text-align: center;
+        }
+        .quadro{
+            width: 300px;
+            height: 300px;
+            border: 8px inset #cea96d;
+            transition: transform 0.5s linear;
+            cursor: zoom-in;
+        }
+        .nomeQuadro{
+            margin-top: 5px;
+            width: 300px;
+            text-align: center;
+            font: normal 13pt;
+            font-family: Georgia;
+
+        }
+        #enfeite{
+            width: 400px;
+            height: 40px;
+            margin-left: 50px;
+        }
+        #enfeite2{
+            width: 400px;
+            height: 40px;
+            margin-right: 50px;
+        }
+        h1{
+            font-size: 30pt;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="IMG/Meu projeto2.png" id="enfeite2">
+        <h1>Coleção van gogh</h1>
+        <img src="IMG/Meu projeto2.png" id="enfeite">
+    </header>
+    <section>
+        <div><img class="quadro" src="IMG/van1.jpg" alt="" oncontextmenu="saberMais()" onclick="alternarAmpliar()"><p class="nomeQuadro">A noite estrelada</p></div>
+        <div><img class="quadro" src="IMG/van2.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Os girassóis</p></div>
+        <div><img class="quadro" src="IMG/van3.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Os comedores de batata</p></div>
+        <div><img class="quadro" src="IMG/van4.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">O quarto</p></div>
+        <div><img class="quadro" src="IMG/van5.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Autoretrato orelha cortada</p></div>
+        <div><img class="quadro" src="IMG/van6.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Terraço café à noite</p></div>
+        <div><img class="quadro" src="IMG/van7.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Campo de trigo com corvos</p></div>
+        <div><img class="quadro" src="IMG/van8.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">O carteiro</p></div>
+        <div><img class="quadro" src="IMG/van9.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">Amendoeira em flor</p></div>
+        <div><img class="quadro" src="IMG/van10.jpg" alt="" onclick="alternarAmpliar()"><p class="nomeQuadro">A cadeira com cachimbo</p></div>
+    </section>
+    <footer>
+        <p>&copy;Editora C&L</p>
+        <div id="final"></div>
+    </footer>
+    <script>
+        var ampliado = false
+        var tituloHistoriaQuadro
+        var historiaQuadro
+        var direitosQuadros
+        function saberMais(){
+            window.open("Squadro1.html", "_blank")
+        }
+        function rolar(){
+            const ancora = window.document.querySelector('#final')
+            ancora.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+        function ampliar(){
+            const quadros = window.document.querySelector('.quadro')
+            const pagina = window.document.querySelector('body')
+            const nomeQuadro = window.document.querySelector('.nomeQuadro')
+            const final = window.document.querySelector('#final')
+            quadros.style.transform = "scale(1.0) translateX(740px) translateY(1000px)" 
+            quadros.style.cursor = 'zoom-out'
+            nomeQuadro.style.transform = "translateX(740px) translateY(1000px)"
+            pagina.style.height = "1750px"
+            final.style.transform = "scale(1.0)translateY(880px)"
+            const quadroatt = window.document.querySelector('.quadro')
+            ampliado = true
+            setTimeout(rolar, 2)
+            tituloHistoriaQuadro = window.document.createElement('h1')
+            tituloHistoriaQuadro.innerText = 'Breve historia do quadro'      
+            tituloHistoriaQuadro.style.border = '5px double white'  
+            tituloHistoriaQuadro.style.width = '500px'    
+            tituloHistoriaQuadro.style.textAlign = 'center'
+            tituloHistoriaQuadro.style.marginLeft = '100px'
+            tituloHistoriaQuadro.style.marginTop = '220px'
+            document.body.appendChild(tituloHistoriaQuadro)
+            historiaQuadro = window.document.createElement('p')
+            historiaQuadro.innerText = '"A Noite Estrelada" é uma pintura feita pelo famoso artista Vincent van Gogh em 1889. A obra retrata uma paisagem noturna com um céu estrelado, onde estrelas brilhantes se movem em torno de uma lua crescente. A pintura mostra um vilarejo com casas, uma igreja e altas árvores chamadas ciprestes.'
+            historiaQuadro.style.marginLeft = '120px'
+            historiaQuadro.style.width = '460px'
+            historiaQuadro.style.background = '#bba689'
+            historiaQuadro.style.borderRadius = '10px'
+            historiaQuadro.style.boxShadow = '5px 5px 10px rgba(0, 0, 0, 0.516)'
+            historiaQuadro.style.padding = '15px'
+            historiaQuadro.style.font = 'normal 14pt Arial'
+            document.body.appendChild(historiaQuadro)
+            direitosQuadros = window.document.createElement('h1')
+            direitosQuadros.style.width = '500px'
+            direitosQuadros.innerText = 'Direitos e onde se encontra'
+            direitosQuadros.style.border = '5px double white'
+            direitosQuadros.style.marginTop = '-265px'
+            direitosQuadros.style.marginLeft = '1200px'
+            direitosQuadros.style.textAlign = 'center'
+            document.body.appendChild(direitosQuadros)
+            txtdireitos = window.document.createElement('p')
+            txtdireitos.innerText = 'Os direitos autorais do quadro "A Noite Estrelada" pertencem aos herdeiros de Vincent van Gogh. A pintura está atualmente em exibição no Museu de Arte Moderna (MoMA) em Nova York, Estados Unidos.'
+            txtdireitos.style.width = '460px'
+            txtdireitos.style.background = '#bba689'
+            txtdireitos.style.borderRadius = '10px'
+            txtdireitos.style.boxShadow = '5px 5px 10px rgba(0, 0, 0, 0.516)'
+            txtdireitos.style.padding = '15px'
+            txtdireitos.style.font = 'normal 14pt Arial'
+            txtdireitos.style.marginLeft = '1210px'
+            document.body.appendChild(txtdireitos)
+            dicaSabermais = window.document.createElement('p')
+            dicaSabermais.innerText = '💡Clique com o botao direito no quadro para mais informações💡'
+            dicaSabermais.style.width = "430px"
+            dicaSabermais.style.marginTop = '200px'
+            dicaSabermais.style.marginLeft = '720px'
+            dicaSabermais.background = '#bba689'
+            dicaSabermais.style.borderRadius = '10px'
+            dicaSabermais.style.boxShadow = '5px 5px 10px rgba(0, 0, 0, 0.516)'
+            dicaSabermais.style.padding = '5px'
+            dicaSabermais.style.textAlign = 'center'
+
+            document.body.appendChild(dicaSabermais)
+            
+
+        }
+        function desampliar(){
+            const quadros = window.document.querySelector('.quadro')
+            const pagina = window.document.querySelector('body')
+            const nomeQuadro = window.document.querySelector('.nomeQuadro')
+            const final = window.document.querySelector('#final')
+            quadros.style.transform = "scale(1.0) translateX(0px)"
+            nomeQuadro.style.transform = "translateX(0px) translateY(0px)"
+            pagina.style.height = "400px"
+            final.style.transform = "scale(1.0)translateY(0px)"
+            ampliado = false
+            rolar()
+            document.body.removeChild(tituloHistoriaQuadro)
+            document.body.removeChild(historiaQuadro)
+            document.body.removeChild(direitosQuadros)
+            document.body.removeChild(txtdireitos)
+            document.body.removeChild(dicaSabermais)
+            quadros.style.cursor = 'zoom-in'
+
+        }
+        function alternarAmpliar(){
+            if(ampliado){
+                desampliar()
+            } else {
+                ampliar()
+            }
+        }
+       // criar um array com os textos de cada quadro especifico, e passar por parametro na funcao alternarampliar
+       // qual quadro foi selecionado, e para fazer isso criar um id especidfico para cada quadro, e dependendo
+       // de qual quadro foi passado por parametro ele acessa uma posição do array especifica dos textos que pertence o quadro
+       // criar dois arrays um deles com a historia do quadro e outro array com os drireitos e localização
+
+       // na funcao sabermais proucurar uma pagina especificando cada quadro que ja eteja pronta
+    </script>
+</body>
+</html>
